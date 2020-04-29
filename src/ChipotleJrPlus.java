@@ -68,6 +68,41 @@ public class ChipotleJrPlus {
         sourcream.add("yes");
         sourcream.add("no");
 
+        // replace strings like "no", "none", "all", "yes"
+        rice.set(0, "brown rice");
+        rice.set(1,"white rice");
+        rice.set(2, "no rice");
+        rice.set(3, "all rice");
+
+        meat.set(6, "no meat");
+        meat.set(7, "all meat");
+
+        beans.set(0, "pinto beans");
+        beans.set(1, "black beans");
+        beans.set(2, "no beans");
+        beans.set(3, "all beans");
+
+        salsa.set(0, "mild salsa");
+        salsa.set(1, "medium salsa");
+        salsa.set(2, "hot salsa");
+        salsa.set(3, "no salsa");
+        salsa.set(4, "all salsa");
+
+        veggies.set(2, "no veggies");
+        veggies.set(3, "all salsa");
+
+        cheese.set(0, "cheese");
+        cheese.set(1, "no cheese");
+
+        guac.set(0, "guac");
+        guac.set(1, "no guac");
+
+        queso.set(0, "queso");
+        queso.set(1, "no queso");
+
+        sourcream.set(0, "sour cream");
+        sourcream.set(1, "no sour cream");
+
 
         for (int num_burrido = 0; num_burrido < 25; num_burrido++) {
 
@@ -110,6 +145,7 @@ public class ChipotleJrPlus {
                 }   // end if loop
             }   // end for loop
             bubblesort(index_ingredients);
+//            System.out.println("index_ingredients = " + index_ingredients);
 
             for (int i = 0; i < how_many_ingredients; i++) {
 
@@ -135,8 +171,8 @@ public class ChipotleJrPlus {
             for (int i = 0; i < burrito_for_cashier.size(); i++) {
                 boolean temp_no = false;
                 boolean temp_none = false;
-                temp_no = burrito_for_cashier.get(i).equalsIgnoreCase("no");
-                temp_none = burrito_for_cashier.get(i).equalsIgnoreCase("none");
+                temp_no = burrito_for_cashier.get(i).contains("no");
+                temp_none = burrito_for_cashier.get(i).contains("none");
 
                 if (temp_no || temp_none) {
 
@@ -146,90 +182,7 @@ public class ChipotleJrPlus {
             }   // end of for loop
             burrito_price = 3 + (qty_for_rate * 0.5);
             System.out.printf("\nBurrito %d: ", (num_burrido + 1));
-
-            // replace strings like "no", "none", "all", "yes"
-            //for rice
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 0 && burrito_component.get(k) == 2){
-                    burrito_for_cashier.set(2, "no rice");
-                }
-                else if(index_ingredients.get(k) == 0 && burrito_component.get(k) == 3){
-                    burrito_for_cashier.set(3, "all rice");
-                }
-            }
-            // for meat
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 1 && burrito_component.get(k) == 6){
-//                    burrito_for_cashier.set(6, "no meat");
-                }
-                else if(index_ingredients.get(k) == 1 && burrito_component.get(k) == 7){
-//                    System.out.println();
-//                    burrito_for_cashier.set(7, "all meat");
-                }
-            }
-            // for beans
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 2 && burrito_component.get(k) == 2){
-                    burrito_for_cashier.set(2, "no beans");
-                }
-                else if(index_ingredients.get(k) == 2 && burrito_component.get(k) == 3){
-                    burrito_for_cashier.set(3, "all beans");
-                }
-            }
-            // for salsa
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 3 && burrito_component.get(k) == 3){
-                    burrito_for_cashier.set(3, "no salsa");
-                }
-                else if(index_ingredients.get(k) == 3 && burrito_component.get(k) == 4){
-                    burrito_for_cashier.set(4, "all salsa");
-                }
-            }
-            // for veggies
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 4 && burrito_component.get(k) == 2){
-                    burrito_for_cashier.set(2, "no salsa");
-                }
-                else if(index_ingredients.get(k) == 4 && burrito_component.get(k) == 3){
-                    burrito_for_cashier.set(3, "all salsa");
-                }
-            }
-            // for chese
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 5 && burrito_component.get(k) == 0){
-                    burrito_for_cashier.set(0, "cheese");
-                }
-                else if(index_ingredients.get(k) == 5 && burrito_component.get(k) == 1){
-                    burrito_for_cashier.set(1, "no cheese");
-                }
-            }
-            // for guac
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 6 && burrito_component.get(k) == 0){
-                    burrito_for_cashier.set(0, "guac");
-                }
-                else if(index_ingredients.get(k) == 6 && burrito_component.get(k) == 1){
-                    burrito_for_cashier.set(1, "no guac");
-                }
-            }
-            // for queso
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 7 && burrito_component.get(k) == 0){
-                    burrito_for_cashier.set(0, "queso");
-                }
-                else if(index_ingredients.get(k) == 7 && burrito_component.get(k) == 1){
-                    burrito_for_cashier.set(1, "no queso");
-                }
-            }
-            // for sourcream
-            for(int k = 0 ; k < how_many_ingredients; k++){
-                if(index_ingredients.get(k) == 7 && burrito_component.get(k) == 0){
-                    burrito_for_cashier.set(0, "sour cream");
-                }
-                else if(index_ingredients.get(k) == 7 && burrito_component.get(k) == 1){
-                    burrito_for_cashier.set(1, "no sourcream");
-                }
-            }
+//            System.out.println("burrito_component = " + burrito_component);
 
             for (int i = 0; i < burrito_for_cashier.size(); i++) {
 
@@ -242,8 +195,9 @@ public class ChipotleJrPlus {
             }
 
             System.out.printf("\t\t$%.2f", burrito_price);
-            System.out.print("\n-------------------------------------------------------------------------");
+            System.out.print("\n--------------------------------------------------------------------------------------");
 
+//        System.out.println("\n burrito for cashier = " + burrito_for_cashier);
         }   // end of for loop
 
     }   // end of main()

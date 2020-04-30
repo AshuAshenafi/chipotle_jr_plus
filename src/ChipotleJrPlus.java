@@ -180,6 +180,7 @@ public class ChipotleJrPlus {
                 burrito_for_cashier.add(temp);
             }   // end for loop
 
+
             //calculate rate of each ingredient
             for (int i = 0; i < burrito_for_cashier.size(); i++) {
 
@@ -195,6 +196,7 @@ public class ChipotleJrPlus {
                     qty_for_rate++;
                 }   // end if loop
             }   // end of for loop
+
 
 // *************************************  OUTPUT FOR ONE BURRITO ************************************************
 
@@ -216,7 +218,7 @@ public class ChipotleJrPlus {
             }
             all_price += burrito_price;
 
-            System.out.println(format("%-130s %10s", one_burrito, format("$%(,.2f", burrito_price)));
+            System.out.println(format("%-130s %2s %7s", one_burrito, "|", format("$%(,.2f", burrito_price)));
 
             print_dashes('-', 140);
 
@@ -243,7 +245,7 @@ public class ChipotleJrPlus {
         }
 
 // OUTPUT OUTPUT **************** SUMMARY SENTENCE **************** OUTPUT OUTPUT!
-        
+
         print_summary += "\nThis order has ";
         for (int i = 0; i < all_count.length; i++) {
             for (int j = 0; (all_count[i] != null && j < all_count[i].length); j++) {
@@ -261,10 +263,9 @@ public class ChipotleJrPlus {
 
         print_summary += ", and the sum is $" + format("%.2f", all_price) + ".";
 
-        String str = print_summary;
-        // limit number of characters per line
-        String parsedStr = str.replaceAll("(.{50})", "$1\n");
-        System.out.println(parsedStr);
+
+        // print max of 50 chars per line without truncating a word
+        noword_truncate(print_summary);
 
     }   // end of main()
 
@@ -298,8 +299,24 @@ public class ChipotleJrPlus {
 
     public static void print_dashes(char c, int n){
         for(int i = 0; i < n; i++){
-            System.out.print("-");
+            if(i == (n-9)){
+                System.out.print("|");
+            }
+            else{
+                System.out.print("-");
+            }
+
         }
+    }   // end of print dashes method
+
+    public static void noword_truncate(String str){
+        StringBuilder sb = new StringBuilder(str);
+
+        int i =0;
+        while((i = str.indexOf(" ", i+50)) != -1){
+            sb.replace(i, (i+1), "\n");
+        }
+        System.out.println(sb.toString());
     }
 
 }   // end of class

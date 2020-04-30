@@ -116,7 +116,8 @@ public class ChipotleJrPlus {
         double all_price = 0;
 
         ArrayList<String> burrito_for_summary = new ArrayList<>();
-
+// Chipotle logo why not!
+        print_logo();
 // ******************************************** FOR LOOP for 25 Burritos ********************************************
 
         for (int num_burrido = 0; num_burrido < 25; num_burrido++) {
@@ -200,7 +201,7 @@ public class ChipotleJrPlus {
 
 // *************************************  OUTPUT FOR ONE BURRITO ************************************************
 
-            String one_burrito ="";
+            String one_burrito = "";
 
             burrito_price = 3 + (qty_for_rate * 0.5);           // price for one burrito
 
@@ -297,26 +298,53 @@ public class ChipotleJrPlus {
         }
     }   // end of bubblesort() class
 
-    public static void print_dashes(char c, int n){
-        for(int i = 0; i < n; i++){
-            if(i == (n-9)){
+    public static void print_dashes(char c, int n) {
+        for (int i = 0; i < n; i++) {
+            if (i == (n - 9)) {
                 System.out.print("|");
-            }
-            else{
+            } else {
                 System.out.print("-");
             }
 
         }
     }   // end of print dashes method
 
-    public static void noword_truncate(String str){
+    public static void noword_truncate(String str) {
         StringBuilder sb = new StringBuilder(str);
 
-        int i =0;
-        while((i = str.indexOf(" ", i+50)) != -1){
-            sb.replace(i, (i+1), "\n");
+        int i = 0;
+        while ((i = str.indexOf(" ", i + 50)) != -1) {
+            sb.replace(i, (i + 1), "\n");
         }
         System.out.println(sb.toString());
+    }   // end of noword_truncate() method
+
+    public static void print_logo() {
+        // print chipotle logo ... why not!
+        System.out.printf("%5s %11s %5s %11s %3s %1s %5s %11s %5s %11s %5s %11s %5s %11s %5s %11s\n", "", "* * * * * * *", "", "*           *", "", "*", "", "* * * * * *  ", "", "* * * * * * *", "", "* * * * * * *", "", "*            ", "", "* * * * * * * * * *");
+
+        for (int i = 0; i < 10; i++) {
+            if (i == 4) {
+
+                System.out.printf("%5s %11s %5s %11s %3s %1s %5s %11s %5s %11s %5s %11s %5s %11s %5s %11s\n", "", "*            ", "", "* * * * * * *", "", "*", "", "* * * * * * *", "", "*           *", "", "      *      ", "", "*            ", "", "* * * * * * * * * *");
+
+            } else if (i == 5 | i == 9) {
+                System.out.printf("%5s %1s %9s %1s %5s %1s %9s %1s %3s %1s %5s %1s %9s %1s %5s %1s %9s %1s %5s %1s %3s %1s %11s %1s %9s %1s %5s %9s\n", "", "*", "", " ", "", "*", "", "*", "", "*", "", "*", "", " ", "", "*", "", "*", "", " ", "", "*", "", "*", "", " ", "", "* * * * * * * * * *");                                                                                                                                                             // %50s %1s %15s %1s %10s %1s %15s %1s %10s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s
+            } else if (i == 0) {
+                System.out.printf("%5s %1s %9s %1s %5s %1s %9s %1s %3s %1s %5s %1s %9s %1s %5s %1s %9s %1s %11s %1s %3s %1s %5s %1s %9s %1s %5s %9s\n", "", "*", "", " ", "", "*", "", "*", "", "*", "", "*", "", "*", "", "*", "", "*", "", "*", "", " ", "", "*", "", " ", "", "* * * * * * * * * *");                                                                                                                                                             // %50s %1s %15s %1s %10s %1s %15s %1s %10s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s
+
+            } else if (i == 6 | i == 7 | i == 8) {
+
+                System.out.printf("%5s %1s %9s %1s %5s %1s  %7s  %1s  %2s %1s  %4s %1s %9s  %1s  %2s  %1s %9s %1s %5s %5s %1s %11s %1s\n", "", "*", "", " ", "", "*", "", "*", "", "*", "", "*", "", " ", "", "*", "", "*", "", " ", "*", " ", "*");                                                                                                                                                             // %50s %1s %15s %1s %10s %1s %15s %1s %10s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s
+            } else {
+                System.out.printf("%5s %1s %9s %1s %5s %1s  %7s  %1s  %2s %1s  %4s %1s %9s  %1s  %2s  %1s %9s %1s %5s %5s %1s %11s %1s\n", "", "*", "", " ", "", "*", "", "*", "", "*", "", "*", "", "*", "", "*", "", "*", "", " ", "*", " ", "*");                                                                                                                                                             // %50s %1s %15s %1s %10s %1s %15s %1s %10s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s %15s %1s %10s %1s
+
+            }
+        }
+        System.out.printf("%5s %11s %5s %11s %3s %1s %5s %11s %5s %11s %5s %11s %5s %11s %5s %11s\n", "", "* * * * * * *", "", "*           *", "", "*", "", "*            ", "", "* * * * * * *", "", "      *      ", "", "* * * * * * *", "", "* * * * * * * * * *");
+        for (int i = 0; i < 79; i++) {
+            System.out.print(" *");
+        }
     }
 
 }   // end of class
